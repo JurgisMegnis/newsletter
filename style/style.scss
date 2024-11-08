@@ -1,0 +1,156 @@
+//Defining color styles
+$grayDark: #6C727F;
+$gray: #E5E7EB;
+$grayLight: #F9FAFB;
+$baseLight: #FFFFFF;
+$baseDark: #000000;
+$primary: #284BCE;
+$dark: #394150;
+
+//Defining typography
+//Header
+@mixin header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 3rem;
+}
+
+//Subheader
+@mixin subheading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+}
+
+//Input placeholder
+@mixin placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+//Button label
+@mixin buttonText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+//Helper text
+@mixin helperText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.875rem;
+}
+
+//Adding style to the layout
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $grayLight;
+  padding: 100px 0;
+}
+
+.mainContainer {
+  width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.iconWrap {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+h1 {
+  @include header;
+  margin-bottom: 16px;
+  color: $baseDark;
+  line-height: 1.2em;
+}
+
+.subheader {
+  @include subheading;
+  color: $grayDark;
+  margin-bottom: 56px;
+}
+
+.inputCard {
+  width: 80%;
+  margin: 0 auto;
+  background-color: $baseLight;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 8px 8px 20px 0px rgba(85, 85, 85, 0.08);
+
+  input[type=email] {
+    height: 56px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid $gray;
+    background-color: $grayLight;
+    @include placeholder;
+    text-align: center;
+    margin-bottom: 24px;
+
+    transition: border .1s ease-out; // global
+    -moz-transition: border .1s ease-out; // for mozilla
+    -o-transition: border .1s ease-out; // for opera
+    -webkit-transition: border .1s ease-out; //for webkit, chrome or safari
+
+    &:focus {
+      border: 2px solid $primary;
+      outline: none;
+    }
+  }
+
+  input[type=submit] {
+    height: 56px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: $primary;
+    @include buttonText;
+    color: $baseLight;
+    margin-bottom: 24px;
+    border: 1px solid $primary;
+
+    transition: all .1s ease-out; // global
+    -moz-transition: all .1s ease-out; // for mozilla
+    -o-transition: all .1s ease-out; // for opera
+    -webkit-transition: all .1s ease-out; //for webkit, chrome or safari
+
+
+    &:hover {
+      cursor: pointer;
+      border: 2px solid $primary;
+      background-color: $baseLight;
+      color: $primary;
+    }
+  }
+
+  .helperText {
+    @include helperText;
+    color: $grayDark;
+  }
+}
+
+@media (max-width: 640px) {
+  .mainContainer {
+      width: 90%;
+  }
+
+  .inputCard {
+    width: 100%;
+  }
+}
+
